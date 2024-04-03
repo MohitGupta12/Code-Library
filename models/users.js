@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
-const UserSchema = new Schema({
-    Username: {
+const userSchema = new Schema({
+    username: {
         type: String,
         required: [true, "Please provide a Username"],
         unique: true,
@@ -17,13 +17,13 @@ const UserSchema = new Schema({
     },
     role: {
         type: String,
-        enum: ["user", "admin","creator"],
+        enum: ["user", "admin"],
         default: "user",
     },
 },{
     timestamps: true,
 })
 
-const User = mongoose.models.Users || mongoose.model("User", UserSchema);
+const User = mongoose.models.user || mongoose.model("user", userSchema);
 
 export default User;
