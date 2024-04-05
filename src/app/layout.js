@@ -9,13 +9,6 @@ import { useEffect } from "react";
 
 
 export default function RootLayout({ children }) {
-  useEffect(() => {
-    const getUserDetails =async ()=> {
-      const res = await axios.get("/api/users/me");
-      console.log(res.data);
-    }
-    getUserDetails();
-  }, []);
   return (
     <html lang="en">
       <body

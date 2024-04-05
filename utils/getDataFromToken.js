@@ -1,13 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server'
 import jwt from 'jsonwebtoken';
 
-export const getDataFromToken = async (request ) => {
+const getDataFromToken = async (request) => {
     try {
         const token = request.cookies.get('token')?.value || "";
+        // console.log(token);
         const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+        // log(decodedToken);
         return decodedToken.id;
     } catch (error) {
         throw new Error(error.message);
     }
 }
 
+export default getDataFromToken;

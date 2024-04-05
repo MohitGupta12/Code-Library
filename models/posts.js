@@ -5,9 +5,18 @@ const postSchema = new Schema({
         type: String,
         required: true,
     },
+    desc: {
+        type: String,
+        required: true,
+    },
     content: {
         type: String,
         required: true,
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'user', // Reference to the User model
+        required: true
     }
 },{
         timestamps: true,

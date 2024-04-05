@@ -2,20 +2,21 @@
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import Link from "next/Link";
 
 const LoginPage = () => {
   const [data, seData] = useState({ email: "", password: "" });
   const router = useRouter();
 
   const Login = async (e) => {
-    console.log("logging In");
+    // console.log("logging In");
     e.preventDefault();
     try {
-      console.log(data);
-      console.log("api call");
+      // console.log(data);
+      // console.log("api call");
       const response = await axios.post("/api/users/login", data);
-      console.log(response.data);
-      router.push("/library");
+      // console.log(response.data);
+      router.push("/");
     } catch (err) {
       console.log(err);
     }
@@ -101,12 +102,12 @@ const LoginPage = () => {
               </button>
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Don’t have an account yet?{" "}
-                <a
-                  href="#"
+                <Link
+                  href="/signup"
                   className="font-medium text-primary-600 hover:underline dark:text-primary-500"
                 >
                   Sign up
-                </a>
+                </Link>
               </p>
             </form>
           </div>

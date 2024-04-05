@@ -34,6 +34,7 @@ await connectMongoDB();
 
         // create and assign a token
         const token = await jwt.sign(tokenData, process.env.JWT_SECRET, {expiresIn: "1d"});
+
         console.log("JWT token created");
         const response = NextResponse.json({
             message: "User logged in successfully",
@@ -41,9 +42,9 @@ await connectMongoDB();
         });
 
         console.log(response, "response created");
+
         response.cookies.set("token", token, {httpOnly: true,});
-        console.log("Token set in cookies");
-        console.log("sending response");
+        response.cookies.set("isLoggedIn", true);
 
         return response;
     } catch (err) {
