@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CodeShare
+
+CodeShare is an open-source platform where developers can share and discover code snippets, components, and reusable code for common functionalities such as authentication, middleware, etc.
+
+## Features
+
+- FrontEnd <br>
+
+  - [ ] Create a General Layout for all Pages <br>
+  - [ ] Create an error page and Loading pages for every page. <br>
+  
+  -  Home Page <br>
+    - [ ] Create a Dashboard and cta button (frontend) <br>
+    - [ ] Create top 6-8 components Section (frontend) <br>
+    
+  - Library Page (page to find other libraries) <br>
+    - [ ] Create Search Functionality  <br>
+    - [ ] Create Search and library Sections (frontend) <br>
+  
+  - Particular Library Page <br>
+    - [ ] Create a Page for the Library and components in it (frontend)  <br>
+  
+  - Component Page <br>
+    - [ ] Create a section to display your components (frontend) <br>
+    - [ ] Create a "medium-like" form to add components (frontend) <br>
+  
+  - About Page <br>
+    - [ ] Create an About page with a link to contribute and project. <br>
+  
+  - Profile Page   <br>
+    - [ ] Settings like theme, change pfp, change name, etc. <br>
+
+  
+- BackEnd <br>
+  
+  - [ ] Add images to the database. <br>
+  
+  - Auth  <br>
+    - [ ] Signup should redirect to Home page. <br>
+    - [ ] Add additional signup and login option (google, github, facebook, etc). <br>
+    - [ ] Fix navbar {login button} <br>
+
+- Optional
+  - Add comments to every post   
+
+## Tech Stack
+
+- **MongoDB**: Database for storing user data, libraries, and shared code snippets.
+- **Next.js**: React framework for building server-side rendered web applications.
+- **Tailwind CSS**: Utility-first CSS framework for styling the user interface.
+
+## How to Contribute
+
+We welcome contributions from the community to improve and enhance the CodeShare platform. Here's how you can contribute:
+
+1. Fork the repository.
+2. Clone the forked repository to your local machine.
+3. Make your changes and improvements.
+4. Test your changes thoroughly.
+5. Commit your changes with clear and descriptive commit messages.
+6. Push your changes to your fork.
+7. Submit a pull request to the main repository.
+8. Participate in discussions and reviews related to your pull request.
 
 ## Getting Started
 
-First, run the development server:
+To get started with using CodeShare, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone the repository to your local machine.
+2. Install the necessary dependencies.
+3. Set up the environment configuration.
+4. Run the application locally.
+5. Register an account or log in if you already have one.
+6. Start sharing your code snippets or components.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Documentation
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+For detailed documentation on how to use CodeShare and its features, please refer to the [Wiki](link_to_wiki).
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Support
 
-## Learn More
+If you encounter any issues or have questions regarding CodeShare, feel free to [open an issue](link_to_issues). We'll be happy to assist you.
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+CodeShare is licensed under the [MIT License](link_to_license).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
