@@ -4,41 +4,41 @@ CodeShare is an open-source platform where developers can share and discover cod
 
 ## Features
 
-{ } FrontEnd <br>
+- FrontEnd <br>
 
-  [ ] Create a General Layout for all Pages <br>
-  [ ] Create an error page and Loading pages for every page. <br>
+  - [ ] Create a General Layout for all Pages <br>
+  - [ ] Create an error page and Loading pages for every page. <br>
   
-  { } Home Page <br>
-    [ ] Create a Dashboard and cta button (frontend) <br>
-    [ ] Create top 6-8 components Section (frontend) <br>
+  -  Home Page <br>
+    - [ ] Create a Dashboard and cta button (frontend) <br>
+    - [ ] Create top 6-8 components Section (frontend) <br>
     
-  { } Library Page (page to find other libraries) <br>
-    [ ] Create Search Functionality  <br>
-    [ ] Create Search and library Sections (frontend) <br>
+  - Library Page (page to find other libraries) <br>
+    - [ ] Create Search Functionality  <br>
+    - [ ] Create Search and library Sections (frontend) <br>
   
-  { } Particular Library Page <br>
-    [ ] Create a Page for the Library and components in it (frontend)  <br>
+  - Particular Library Page <br>
+    - [ ] Create a Page for the Library and components in it (frontend)  <br>
   
-  { } Component Page <br>
-    [ ] Create a section to display your components (frontend) <br>
-    [ ] Create a "medium-like" form to add components (frontend) <br>
+  - Component Page <br>
+    - [ ] Create a section to display your components (frontend) <br>
+    - [ ] Create a "medium-like" form to add components (frontend) <br>
   
-  { } About Page <br>
-    [ ] Create an About page with a link to contribute and project. <br>
+  - About Page <br>
+    - [ ] Create an About page with a link to contribute and project. <br>
   
-  { } Profile Page   <br>
-    [ ] Settings like theme, change pfp, change name, etc. <br>
+  - Profile Page   <br>
+    - [ ] Settings like theme, change pfp, change name, etc. <br>
 
   
-{ } BackEnd <br>
+- BackEnd <br>
   
-  { } Add images to the database. <br>
+  - [ ] Add images to the database. <br>
   
-  { } Auth  <br>
-    [ ] Signup should redirect to Home page. <br>
-    [ ] Add additional signup and login option (google, github, facebook, etc). <br>
-    [ ] Fix navbar {login button} <br>
+  - Auth  <br>
+    - [ ] Signup should redirect to Home page. <br>
+    - [ ] Add additional signup and login option (google, github, facebook, etc). <br>
+    - [ ] Fix navbar {login button} <br>
 
 - Optional
   - Add comments to every post   
