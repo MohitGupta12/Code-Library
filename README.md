@@ -36,7 +36,7 @@ CodeShare is an open-source platform where developers can share and discover cod
   - [ ] Add images to the database. <br>
   
   - Auth  <br>
-    - [ ] Signup should redirect to Home page. <br>
+    - [X] Signup should redirect to Home page. <br>
     - [ ] Add additional signup and login option (google, github, facebook, etc). <br>
     - [ ] Fix navbar {login button} <br>
 
