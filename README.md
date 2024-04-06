@@ -38,7 +38,9 @@ CodeShare is an open-source platform where developers can share and discover cod
   - Auth  <br>
     - [X] Signup should redirect to Home page. <br>
     - [ ] Add additional signup and login option (google, github, facebook, etc). <br>
+    - [ ] Validation in auth process <br>
     - [ ] Fix navbar {login button} <br>
+    
 
 - Optional
   - Add comments to every post   
