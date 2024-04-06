@@ -21,6 +21,7 @@ export const config = {
     '/signup',
     '/about_us',
     '/library',
-    '/my_component'
+    '/component',
+    '/component/add',
 ],
 }

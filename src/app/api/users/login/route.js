@@ -31,6 +31,7 @@ await connectMongoDB();
             email: user.email,
             username: user.username
         }
+        console.log(tokenData.id, tokenData.email, tokenData.username);
 
         // create and assign a token
         const token = await jwt.sign(tokenData, process.env.JWT_SECRET, {expiresIn: "1d"});

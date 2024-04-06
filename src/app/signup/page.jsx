@@ -10,10 +10,10 @@ const SignupPage = () => {
   const SignUp = async (e) => {
     e.preventDefault();
     try {
-      console.log(data);
+      // console.log(data);
       const response = await axios.post('/api/users/signup', data)
-      console.log(response.data);
-      router.push('/login');
+      // console.log(response.data);
+      router.push('/');
     } catch (err) {
       console.log(err);
     }
