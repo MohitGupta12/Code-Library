@@ -40,10 +40,17 @@ CodeShare is an open-source platform where developers can share and discover cod
     - [ ] Add additional signup and login option (google, github, facebook, etc). <br>
     - [ ] Validation in auth process <br>
     - [ ] Fix navbar {login button} <br>
+  - Library <br>
+    - [ ] Make API endpoint for CRUD operations for library. <br>
+    - [ ] Connect it to post and user. <br>
+    - [ ] 
     
-
 - Optional
   - Add comments to every post   
+
+## Database
+
+- [ER Model](https://excalidraw.com/#json=9tKHqQLAd6AuwgftuxXR7,1P02YtnIDWBiT9hlE8mrZA) of database
 
 ## Tech Stack
 
