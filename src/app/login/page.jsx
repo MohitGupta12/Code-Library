@@ -2,8 +2,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import Link from "next/Link";
-
+import Link from "next/link";
+import { toast } from "react-hot-toast";
 const LoginPage = () => {
   const [data, seData] = useState({ email: "", password: "" });
   const router = useRouter();
@@ -16,9 +16,11 @@ const LoginPage = () => {
       // console.log("api call");
       const response = await axios.post("/api/users/login", data);
       // console.log(response.data);
+
       router.push("/");
     } catch (err) {
-      console.log(err);
+      toast.error(err.response.data.error);
+      // console.log("in error");
     }
   };
 
@@ -58,7 +60,9 @@ const LoginPage = () => {
                 </label>
                 <input
                   value={data.password}
-                  onChange={(e) => seData({ ...data, password: e.target.value })}
+                  onChange={(e) =>
+                    seData({ ...data, password: e.target.value })
+                  }
                   type="password"
                   name="password"
                   id="password"

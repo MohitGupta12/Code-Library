@@ -1,5 +1,6 @@
 "use client"
 import "../globals.css";
+
 export default function Home() {
   function handleSubmit() {
     console.log("Form submitted");

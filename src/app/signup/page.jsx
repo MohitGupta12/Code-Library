@@ -1,20 +1,38 @@
 "use client";
 import { useState } from "react";
 import axios from "axios";
-import { useRouter } from "next/navigation"
-
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 const SignupPage = () => {
-
-  const [data, seData] = useState({username:'', email: '', password: ''})
+  const [data, seData] = useState({ username: "", email: "", password: "" });
   const router = useRouter();
+
+  const validateEmail = (email) => {
+    // Regular expression to validate email format
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  };
   const SignUp = async (e) => {
     e.preventDefault();
     try {
       // console.log(data);
-      const response = await axios.post('/api/users/signup', data)
+      // validating email
+      if(!validateEmail(data.email))
+      {
+        toast.error("enter valid email");
+        return;
+      }
+      // validating password
+      if(data.password=="")
+      {
+        toast.error("give password");
+        return;
+      }
+      const response = await axios.post("/api/users/signup", data);
       // console.log(response.data);
-      router.push('/');
+      router.push("/");
     } catch (err) {
+      toast.error(err.response.data.error);
       console.log(err);
     }
   };
@@ -29,12 +47,17 @@ const SignupPage = () => {
             </h1>
             <form className="space-y-4 md:space-y-6">
               <div>
-                <label htmlFor="username" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                <label
+                  htmlFor="username"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
                   Username
                 </label>
                 <input
                   value={data.username}
-                  onChange={(e) => seData({...data, username: e.target.value})}
+                  onChange={(e) =>
+                    seData({ ...data, username: e.target.value })
+                  }
                   type="string"
                   name="username"
                   id="username"
@@ -44,12 +67,15 @@ const SignupPage = () => {
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                <label
+                  htmlFor="email"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
                   Your email
                 </label>
                 <input
                   value={data.email}
-                  onChange={(e) => seData({...data, email: e.target.value})}
+                  onChange={(e) => seData({ ...data, email: e.target.value })}
                   type="email"
                   name="email"
                   id="email"
@@ -59,12 +85,17 @@ const SignupPage = () => {
                 />
               </div>
               <div>
-                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                <label
+                  htmlFor="password"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
                   Password
                 </label>
                 <input
                   value={data.password}
-                  onChange={(e) => seData({...data, password: e.target.value})}
+                  onChange={(e) =>
+                    seData({ ...data, password: e.target.value })
+                  }
                   type="password"
                   name="password"
                   id="password"
@@ -84,16 +115,34 @@ const SignupPage = () => {
                   />
                 </div>
                 <div className="ml-3 text-sm">
-                  <label htmlFor="terms" className="font-light text-gray-500 dark:text-gray-300">
-                    I accept the <a className="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and Conditions</a>
+                  <label
+                    htmlFor="terms"
+                    className="font-light text-gray-500 dark:text-gray-300"
+                  >
+                    I accept the{" "}
+                    <a
+                      className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                      href="#"
+                    >
+                      Terms and Conditions
+                    </a>
                   </label>
                 </div>
               </div>
-              <button onClick={SignUp} className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+              <button
+                onClick={SignUp}
+                className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+              >
                 Create an account
               </button>
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                Already have an account? <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Login here</a>
+                Already have an account?{" "}
+                <a
+                  href="#"
+                  className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                >
+                  Login here
+                </a>
               </p>
             </form>
           </div>
