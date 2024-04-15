@@ -43,7 +43,7 @@ CodeShare is an open-source platform where developers can share and discover cod
   - Library <br>
     - [ ] Make API endpoint for CRUD operations for library. <br>
     - [ ] Connect it to post and user. <br>
-    - [ ] 
+
     
 - Optional
   - Add comments to every post   
