@@ -1,12 +1,11 @@
 "use client";
 // import { Inter } from "next/font/google";
-import {Navbar, Footer} from "@/components";
+import { Navbar, Footer } from "@/components";
 import "./globals.css";
 import axios from "axios";
 import { useEffect } from "react";
+import { Toaster } from "react-hot-toast";
 // const inter = Inter({ subsets: ["latin"] });
-
-
 
 export default function RootLayout({ children }) {
   return (
@@ -14,10 +13,11 @@ export default function RootLayout({ children }) {
       <body
       //  className={inter.className}
       >
+        <Toaster position="top-center" />
         <Navbar />
         {children}
-        <Footer/>
-        </body>
+        <Footer />
+      </body>
     </html>
   );
 }
