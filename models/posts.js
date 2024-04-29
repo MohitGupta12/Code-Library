@@ -11,7 +11,7 @@ const postSchema = new Schema(
       required: true,
     },
     content: [{
-        fileName:String,
+        language:String,
         code:String
     }],
     user: {

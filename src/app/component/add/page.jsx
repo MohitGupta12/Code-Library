@@ -5,7 +5,7 @@ import axios from "axios";
 // ading dynamic input
 
 const AddComponent = () => {
-  const [inputs, setInputs] = useState([{ fileName: "", code: "" }]);
+  const [inputs, setInputs] = useState([{ language: "", code: "" }]);
   const [data, setData] = useState({
     title: "",
     desc: "",
@@ -13,7 +13,7 @@ const AddComponent = () => {
     user: "",
   });
   const handleAddInput = () => {
-    setInputs([...inputs, { fileName: "", code: "" }]);
+    setInputs([...inputs, { language: "", code: "" }]);
   };
 
   const handleChange = (event, index) => {
@@ -35,7 +35,6 @@ const AddComponent = () => {
 
   const [selectedImage, setSelectedImage] = useState(null);
   const [userId, setUserId] = useState("");
-
   useEffect(() => {
     const getUserData = async () => {
       const res = await axios.get("/api/users/me");
@@ -72,6 +71,7 @@ const AddComponent = () => {
       desc: "",
       content: [],
     });
+    setInputs([{ language: "", code: "" }]);
   };
 
   return (
@@ -97,14 +97,24 @@ const AddComponent = () => {
           <div className="container">
             {inputs.map((item, index) => (
               <div className="input_container" key={index}>
-                <label htmlFor="fileName">Enter file name: </label>
-                <input
-                  name="fileName"
-                  type="text"
-                  id="fileName"
-                  value={item.fileName}
+                <label htmlFor="language">Enter file type </label>
+                <select
+                  name="language"
+                  id="language"
+                  value={item.language}
                   onChange={(event) => handleChange(event, index)}
-                />
+                >
+                  <option value="any">any</option>
+                  <option value="jsx">jsx</option>
+                  <option value="swift">swift</option>
+                  <option value="python">python</option>
+                  <option value="cpp">cpp</option>
+                  <option value="c">c</option>
+                  <option value="kotlin">kotlin</option>
+                  <option value="tsx">tsx</option>
+                  <option value="rust">rust</option>
+                </select>
+
                 <br />
                 <label htmlFor="code"> code</label>
 
@@ -121,7 +131,12 @@ const AddComponent = () => {
                   </button>
                 )}
                 {index === inputs.length - 1 && (
-                  <button onClick={() => handleAddInput()}>Add</button>
+                  <button
+                    className="text-3xl font-bold text-white bg-slate-700 rounded-md"
+                    onClick={() => handleAddInput()}
+                  >
+                    Add more file
+                  </button>
                 )}
               </div>
             ))}

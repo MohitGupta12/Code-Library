@@ -1,19 +1,53 @@
 "use client";
-import React, { useState } from "react";
-
-import { useRouter } from 'next/navigation'; // Importing router from next/navigation
-
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
+import axios from "axios";
+import CodeBlockDemo from "@/components/snipid";
 
 const detail = () => {
+  const searchParams = useSearchParams();
+  const [data, setData] = useState(null);
+  const id = searchParams.get("id");
+  useEffect(() => {
+    async function fun() {
+      const data = await axios.get(`/api/${id}`);
+      setData(data);
+    }
+    fun();
+  }, []);
 
-
+  console.log(data);
   return (
-    <div className="flex justify-start items-center flex-col w-screen bg-purple-600 h-[90vh]">
-      <h1 className="text-3xl font-bold text-white">Add component</h1>
-      <div className="flex__center flex-col">
-     
+    <>
+      {/* <h1>{data.data.title}</h1> */}
+      <div className="flex h-full justify-start items-center flex-col w-screen bg-purple-600">
+        {data && (
+          <h2 className="text-3xl font-bold text-white">
+            description:{data.data.desc}
+          </h2>
+        )}
+        {data && (
+          <h1 className="text-3xl font-bold text-white">
+            title:{data.data.title}
+          </h1>
+        )}
+        {data &&
+          data.data.content.map((post, index) => {
+            return (
+              <>
+                <br></br>
+
+                <div key={index} className="bg-teal-300 p-2 m-2 rounded-lg">
+                  <CodeBlockDemo
+                    code={post.code}
+                    language={post.language}
+                  ></CodeBlockDemo>
+                </div>
+              </>
+            );
+          })}
       </div>
-    </div>
+    </>
   );
 };
 
