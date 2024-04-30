@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { CldUploadButton } from "next-cloudinary";
+import { CldImage } from "next-cloudinary";
 
 // ading dynamic input
 
@@ -11,7 +13,9 @@ const AddComponent = () => {
     desc: "",
     content: [],
     user: "",
+    imageId:""
   });
+  const [imageId, setImageId] = useState("");
   const handleAddInput = () => {
     setInputs([...inputs, { language: "", code: "" }]);
   };
@@ -33,7 +37,7 @@ const AddComponent = () => {
     setData({ ...data, content: inputs });
   };
 
-  const [selectedImage, setSelectedImage] = useState(null);
+  
   const [userId, setUserId] = useState("");
   useEffect(() => {
     const getUserData = async () => {
@@ -42,17 +46,7 @@ const AddComponent = () => {
     };
     getUserData();
   }, []);
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setSelectedImage(reader.result);
-    };
-
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-  };
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(userId);
@@ -61,6 +55,7 @@ const AddComponent = () => {
       desc: data.desc,
       content: data.content,
       user: userId,
+      imageId:imageId
     };
     setData(newData);
     console.log(newData);
@@ -70,12 +65,14 @@ const AddComponent = () => {
       title: "",
       desc: "",
       content: [],
+      imageId:""
     });
     setInputs([{ language: "", code: "" }]);
+    setImageId("");
   };
 
   return (
-    <div className="flex justify-start items-center flex-col w-screen bg-purple-600 h-[90vh]">
+    <div className="flex h-full min-h-screen justify-start items-center flex-col w-screen bg-purple-600 ">
       <h1 className="text-3xl font-bold text-white">Add component</h1>
       <div className="flex__center flex-col">
         <form>
@@ -90,7 +87,7 @@ const AddComponent = () => {
           <input
             value={data.desc}
             onChange={(e) => setData({ ...data, desc: e.target.value })}
-            type="text"
+            type="text"h
             className="m-2 p-2 w-full rounded-lg"
           />
           <label className="text-white">Content</label>
@@ -141,18 +138,24 @@ const AddComponent = () => {
               </div>
             ))}
           </div>
-
-          <label className="text-white">Thumbnail</label>
-          <input
-            type="file"
-            className="m-2 p-2 w-full rounded-lg"
-            onChange={handleImageChange}
+          <br />
+          <h1>Add Image</h1>
+          <br />
+          <CldUploadButton
+            uploadPreset="dydjag7i"
+            onSuccess={(results) => {
+              console.log("Public ID", results.info.public_id);
+              setImageId(results.info.public_id);
+            }}
+            className="text-3xl font-bold text-white bg-slate-700 rounded-md"
           />
-          {selectedImage && (
-            <img
-              src={selectedImage}
-              alt="preview"
-              className="w-90 h-60 rounded-lg border-black border-[2px]"
+          {imageId && (
+            <CldImage
+              width="300"
+              height="300"
+              src={imageId}
+              sizes="100vw"
+              alt="Description of my image"
             />
           )}
         </form>

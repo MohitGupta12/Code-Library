@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import axios from "axios";
 import CodeBlockDemo from "@/components/snipid";
+import { CldImage } from "next-cloudinary";
 
 const detail = () => {
   const searchParams = useSearchParams();
@@ -12,13 +13,12 @@ const detail = () => {
     async function fun() {
       const data = await axios.get(`/api/${id}`);
       setData(data);
+      console.log(data);
     }
     fun();
   }, []);
 
   console.log(data);
-
- 
 
   return (
     <>
@@ -32,6 +32,15 @@ const detail = () => {
           <h1 className="text-3xl font-bold text-white">
             title:{data.data.title}
           </h1>
+        )}
+        {data && data.data.imageId && (
+          <CldImage
+            width="500"
+            height="500"
+            src={data.data.imageId}
+            sizes="100vw"
+            alt="Description of my image"
+          />
         )}
         {data &&
           data.data.content.map((post, index) => {

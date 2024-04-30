@@ -10,14 +10,19 @@ const postSchema = new Schema(
       type: String,
       required: true,
     },
-    content: [{
-        language:String,
-        code:String
-    }],
+    content: [
+      {
+        language: String,
+        code: String,
+      },
+    ],
     user: {
       type: Schema.Types.ObjectId,
       ref: "user", // Reference to the User model
       required: true,
+    },
+    imageId: {
+      type: String,
     },
   },
   {
