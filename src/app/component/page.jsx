@@ -12,7 +12,7 @@ const MyComponent = () => {
 
   useEffect(() => {
   const getUserData = async () => {
-    const res = await axios.get("/api/users/me");
+    const res = await axios.get("/api/user/me");
     setUser(res.data.user);
     const postRes = await axios.get("/api/post");
     setPostsList(postRes.data);

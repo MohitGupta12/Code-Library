@@ -19,7 +19,7 @@ const Navbar = ({loggedIn}) => {
   const router = useRouter();
   const logout = async () => {
     try {
-      await axios.get("/api/users/logout");
+      await axios.get("/api/user/auth/logout");
       router.push("/login");
     } catch (error) {
       console.log(error);

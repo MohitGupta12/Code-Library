@@ -14,7 +14,7 @@ const LoginPage = () => {
     try {
       // console.log(data);
       // console.log("api call");
-      const response = await axios.post("/api/users/login", data);
+      const response = await axios.post("/api/user/auth/login", data);
       // console.log(response.data);
       router.push("/");
     } catch (err) {

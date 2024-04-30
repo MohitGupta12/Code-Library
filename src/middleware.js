@@ -4,6 +4,7 @@ export function middleware(request) {
   const path = request.nextUrl.pathname;
   const isPublicPath = path === '/login' || path === '/signup' || path === '/about_us';
   const token = request.cookies.get('token')?.value || "";
+
   if (isPublicPath && token) {
     return NextResponse.redirect(new URL('/', request.nextUrl))
   }
@@ -11,6 +12,7 @@ export function middleware(request) {
   if (!isPublicPath && !token) {
     return NextResponse.redirect(new URL('/login', request.nextUrl))
   }
+
 }
 
 // See "Matching Paths" below to learn more

@@ -10,7 +10,7 @@ const AddComponent = () => {
 
     useEffect(() => {
         const getUserData = async () => {
-            const res = await axios.get("/api/users/me");
+            const res = await axios.get("/api/user/me");
             setUserId(res.data.user._id);
         };
         getUserData();

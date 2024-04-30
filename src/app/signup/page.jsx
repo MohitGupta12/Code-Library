@@ -11,7 +11,7 @@ const SignupPage = () => {
     e.preventDefault();
     try {
       // console.log(data);
-      const response = await axios.post('/api/users/signup', data)
+      const response = await axios.post('/api/user/auth/signup', data)
       // console.log(response.data);
       router.push('/');
     } catch (err) {

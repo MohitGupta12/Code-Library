@@ -34,7 +34,6 @@ export async function POST(request) {
 
         console.log(newUser);
 
-
         const tokenData = {
             id: newUser._id,
             email: newUser.email,
@@ -46,13 +45,13 @@ export async function POST(request) {
         const token = await jwt.sign(tokenData, process.env.JWT_SECRET, {expiresIn: "1d"});
 
         console.log("JWT token created");
-        
+
         const response = NextResponse.json({
             message: "User created successfully",
             success: true,
             newUser
         }, {status: 200});
-        
+
         console.log(response, "response created");
 
         response.cookies.set("token", token, {httpOnly: true,});
