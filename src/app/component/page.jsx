@@ -9,7 +9,7 @@ const MyComponent = () => {
   const router = useRouter();
 
   const [user, setUser] = useState({
-    username: "default",
+    username: "",
     email: "default email",
     role: "default role",
   });
@@ -35,9 +35,10 @@ const MyComponent = () => {
 
   return (
     <div className="flex justify-start items-center flex-col w-screen bg-blue-600 h-[90vh]">
-      <h1 className="text-3xl font-bold text-white">
-        Welcome, {user.username}
-      </h1>
+      {user.username&&(<h1 className="text-3xl font-bold text-white">
+    welcome {user.username}
+    </h1>)}
+      
       <div className="flex__center flex-col">
         <button
           onClick={() => {
