@@ -18,16 +18,11 @@ const detail = () => {
 
   console.log(data);
 
-  if (!data)
-    return (
-      <>
-        <div className="flex h-screen justify-start items-center flex-col w-screen bg-purple-600"></div>
-      </>
-    );
+ 
 
   return (
     <>
-      <div className="flex h-full justify-start items-center flex-col w-screen bg-purple-600">
+      <div className="flex h-full min-h-lvh justify-start items-center flex-col w-screen bg-purple-600">
         {data && (
           <h2 className="text-3xl font-bold text-white">
             description:{data.data.desc}
