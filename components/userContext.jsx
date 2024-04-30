@@ -17,6 +17,9 @@ export function UserContextProvider({ children }) {
 
   }, []);
 
+
+
+  // comment
   return (
     <UserContext.Provider value={{ user, setUser }}>
       {console.log("in body of context")}
