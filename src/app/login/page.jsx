@@ -3,11 +3,13 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { UserContext } from "@/components/userContext";
+import { useContext } from "react";
 import { toast } from "react-hot-toast";
 const LoginPage = () => {
   const [data, seData] = useState({ email: "", password: "" });
   const router = useRouter();
-
+const {user,setUser} =useContext(UserContext);
   const Login = async (e) => {
     // console.log("logging In");
     e.preventDefault();
@@ -16,7 +18,9 @@ const LoginPage = () => {
       // console.log("api call");
       const response = await axios.post("/api/users/login", data);
       // console.log(response.data);
-
+      toast.success("login successful");
+        setUser(true);
+        console.log(user);
       router.push("/");
     } catch (err) {
       toast.error(err.response.data.error);

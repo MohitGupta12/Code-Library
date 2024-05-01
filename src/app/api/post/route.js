@@ -5,9 +5,11 @@ import { NextResponse } from "next/server";
 
 
 export async function POST(request) {
-    const { title, desc, content, user } = await request.json();
+    const { title, desc,content ,user ,imageId} = await request.json();
     await connectMongoDB();
-    await Post.create({ title, desc, content, user});
+    
+
+    await Post.create({ title, desc,content, user,imageId});
     return NextResponse.json({ message: "Post created successfully" }, { status: 201 });
 }
 
@@ -19,6 +21,7 @@ export async function GET(request) {
 
 export async function DELETE(request){
     const id  = request.nextUrl.searchParams.get("id");
+    console.log(id);
     await connectMongoDB();
     await Post.findByIdAndDelete(id);
     return NextResponse.json({ message: "Post deleted successfully" }, { status: 200 });

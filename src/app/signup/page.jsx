@@ -3,10 +3,12 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { UserContext } from "@/components/userContext";
+import { useContext } from "react";
 const SignupPage = () => {
   const [data, seData] = useState({ username: "", email: "", password: "" });
   const router = useRouter();
-
+  const {user,setUser}=useContext(UserContext);
   const validateEmail = (email) => {
     // Regular expression to validate email format
     const re = /\S+@\S+\.\S+/;
@@ -30,6 +32,8 @@ const SignupPage = () => {
       }
       const response = await axios.post("/api/users/signup", data);
       // console.log(response.data);
+      toast.success("signup successful");
+         setUser(true);
       router.push("/");
     } catch (err) {
       toast.error(err.response.data.error);

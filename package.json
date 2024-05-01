@@ -11,15 +11,21 @@
   "dependencies": {
     "axios": "^1.6.8",
     "bcryptjs": "^2.4.3",
+    "highlight.js": "^11.9.0",
     "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.2.4",
     "next": "^14.1.4",
+    "next-cloudinary": "^6.5.1",
+    "prettier": "^3.2.5",
+    "prism-react-renderer": "^2.3.1",
     "react": "^18",
+    "react-code-block": "^1.0.0",
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
     "react-icon": "^1.0.0",
     "react-icons": "^5.0.1",
+    "react-use": "^17.5.0",
     "tw-elements-react": "^1.0.0-alpha2"
   },
   "devDependencies": {

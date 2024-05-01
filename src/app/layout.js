@@ -4,6 +4,7 @@ import { Navbar, Footer } from "@/components";
 import "./globals.css";
 import axios from "axios";
 import { useEffect } from "react";
+import { UserContextProvider } from "@/components/userContext";
 import { Toaster } from "react-hot-toast";
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -13,10 +14,27 @@ export default function RootLayout({ children }) {
       <body
       //  className={inter.className}
       >
-        <Toaster position="top-center" />
-        <Navbar />
-        {children}
-        <Footer />
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            success: {
+              style: {
+                color: "green",
+              },
+            },
+            error: {
+              style: {
+                color: "red",
+              },
+            },
+          }}
+        />
+        <UserContextProvider>
+          {" "}
+          <Navbar />
+          {children}
+          <Footer />
+        </UserContextProvider>
       </body>
     </html>
   );
