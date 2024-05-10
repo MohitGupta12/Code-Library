@@ -9,7 +9,7 @@ const getDataFromToken = async (request) => {
         // log(decodedToken);
         return decodedToken.id;
     } catch (error) {
-        throw new Error(error.message);
+        console.log(error.message);
     }
 }
 

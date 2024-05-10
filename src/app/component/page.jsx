@@ -13,6 +13,7 @@ const MyComponent = () => {
   useEffect(() => {
   const getUserData = async () => {
     const res = await axios.get("/api/user/me");
+    console.log(res.data.user);
     setUser(res.data.user);
     const postRes = await axios.get("/api/post");
     setPostsList(postRes.data);
@@ -22,7 +23,7 @@ const MyComponent = () => {
 
   return (
     <div className="flex justify-start items-center flex-col w-screen bg-blue-600 h-[90vh]">
-      <h1 className="text-3xl font-bold text-white">Welcome, {user.username}</h1>
+      <h1 className="text-3xl font-bold text-white mt-20 ">Welcome, {user.username}</h1>
       <div className="flex__center flex-col">
         <button onClick={() => {router.push("/component/add")}} className="m-2 p-2 w-fit rounded-lg bg-green-300">Add Component</button>
         <div className="flex flex-col">

@@ -7,6 +7,7 @@ await connectMongoDB();
 export async function GET (request) {
     try {
         const userId = await getDataFromToken(request);
+        // console.log(userId);
         const user = await User.findById(userId).select("-password") ;
         // console.log(user);
         return NextResponse.json({

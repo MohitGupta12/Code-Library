@@ -1,10 +1,5 @@
-"use client";
-// import { Inter } from "next/font/google";
+import React from 'react'
 import {Navbar, Footer} from "@/components";
-import "./globals.css";
-// const inter = Inter({ subsets: ["latin"] });
-
-
 
 export default function RootLayout({ children }) {
   return (
@@ -12,10 +7,11 @@ export default function RootLayout({ children }) {
       <body
       //  className={inter.className}
       >
-        <Navbar />
+        <Navbar  />
         {children}
-        <Footer/>
         </body>
     </html>
   );
 }
+
+

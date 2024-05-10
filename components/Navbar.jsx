@@ -26,8 +26,8 @@ const Navbar = ({loggedIn}) => {
     }
   }
   return (
-    <div>
-      <div className="flex justify-between items-center bg-cyan-500 text-white p-2">
+    <div style={{ zIndex: 10, position: 'absolute' }}>
+      <div className="flex justify-between items-center bg-cyan-500 w-screen text-white p-2">
         <div>Logo</div>
         <div className="flex justify-between items-center">
         <Link href="/"> <div className="m-2 p-2">Home</div> </Link>
