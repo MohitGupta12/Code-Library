@@ -1,0 +1,18 @@
+Store Data in Backend
+    |- Store User details
+    |- Store Post details
+    |- Store Code Block and its preview image
+    |- Store Image/Banner
+
+Make pages for
+    |- Home Page
+    |- Browse Page / Search Page
+    |- Add Post Page
+    |- Profile Page
+    |- About Page
+    |- SubPages
+        |- Auth pages
+        |   |- login Page
+        |   |- Signup page
+        |- User Profile Settings page
+
