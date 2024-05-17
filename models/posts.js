@@ -7,11 +7,11 @@ const postSchema = new Schema({
     },
     desc: {
         type: String,
-        required: true,
+
     },
     content: {
         type: String,
-        required: true,
+
     },
     user: {
         type: Schema.Types.ObjectId,
