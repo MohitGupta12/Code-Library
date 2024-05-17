@@ -55,16 +55,22 @@ const AddComponent = () => {
               value={data.title}
               onChange={(e) => setData({ ...data, title: e.target.value })}
               type="text" className="m-2 p-2 w-full rounded-lg" />
+
             <label className="text-white">Description</label>
             <input
               value={data.desc}
               onChange={(e) => setData({ ...data, desc: e.target.value })}
               type="text" className="m-2 p-2 w-full rounded-lg" />
+
             <label className="text-white">Content</label>
             <textarea
               value={data.content}
+              cols="30"
+              rows="10"
+              style={{ minHeight: "256px", maxHeight: "425"}}
               onChange={(e) => setData({ ...data, content: e.target.value })}
               className="m-2 p-2 w-full rounded-lg" />
+
             <label className="text-white">Thumbnail</label>
             <input
               type="file"
